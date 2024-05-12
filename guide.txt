@@ -1,0 +1,37 @@
+Customer:
+
+Login Via
+Nama Pelanggan
+Nomor HP
+User ID / Nickname
+Password
+
+
+Product :
+Paket Joki (Radio Box Value = Rank GrandMaster , Rank Epic , Rank Legend , Rank Mythic)
+Jumlah Bintang (Input angka)
+Paket Turbo / Reguler (Check box)
+Metode Pembayaran (Dropdown)
+Survey pelanggan
+
+
+Order Muncul
+
+Notif static hijau : Order berhasil dibuat!
+
+Isi Card
+
+Nomor Order (random)
+Nama order : 
+<h5>Paket $rank - $jumlahbintang bintang</h5>
+Nama Customer : $namacustomer
+No. HP : $NoHP
+ID/Nickname : $ID
+Password :$Password
+Tipe Paket : $Kecepatan
+Metode Pembayaran : $Metode
+Total yang harus dibayar : $total
+<hr>
+<i>Info dari : $Survey</i>
+
+
