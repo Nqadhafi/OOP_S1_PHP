@@ -20,32 +20,37 @@
     <h5 class="card-title">Paket Joki <$rank> - <$jumlahbintang> Bintang</h5>
     <!-- Nama Customer -->
     <span class="d-flex justify-content-between">
-       <h6 class="card-text">Coba</h6>
+       <h6 class="card-text">Nama Customer</h6>
        <p> Anjay</p>
        </span>
        <!-- Nomor HP -->
     <span class="d-flex justify-content-between">
-       <h6 class="card-text">Coba</h6>
+       <h6 class="card-text">Nomor HP</h6>
        <p> Anjay</p>
        </span>
        <!-- ID/Nickname -->
     <span class="d-flex justify-content-between">
-       <h6 class="card-text">Coba</h6>
+       <h6 class="card-text">Nickname/ID</h6>
+       <p> Anjay</p>
+       </span>
+       <!-- Password -->
+       <span class="d-flex justify-content-between">
+       <h6 class="card-text">Password</h6>
        <p> Anjay</p>
        </span>
        <!-- Tipe Paket -->
     <span class="d-flex justify-content-between">
-       <h6 class="card-text">Coba</h6>
+       <h6 class="card-text">Tipe Paket</h6>
        <p> Anjay</p>
        </span>
        <!-- Metode Pembayaran -->
     <span class="d-flex justify-content-between">
-       <h6 class="card-text">Coba</h6>
+       <h6 class="card-text">Metode Pembayaran</h6>
        <p> Anjay</p>
        </span>
        <!-- Referal -->
     <span class="d-flex justify-content-between">
-       <h6 class="card-text">Coba</h6>
+       <h6 class="card-text">Referal</h6>
        <p> Anjay</p>
        </span>
 </div>
