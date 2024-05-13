@@ -19,7 +19,7 @@
       <input class="form-check-input me-3" type="radio" name="469_rank" id="469_rankEpic" value="Rank Epic">
       <label class="form-check-label" for="469_rankEpic">
         <h5>
-      <img src="./assets/epic_icon.png" class="rank-icon_462469_">  
+      <img src="./assets/epic_icon.png" class="rank-icon_462">  
       Rank Epic 
       </h5>
       </label>
