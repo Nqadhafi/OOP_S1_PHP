@@ -91,8 +91,6 @@ class order_462_469 extends product_469{
     }
 }
 
-
-
 $coba = new order_462_469($login_462,$nama_462,$nohp_462,$user_462,$password_462,$rank_469,$jumlah_469,$paket_469,$metode_469,$survey_469);
 $hasil =  $coba->getOrderInfo_462_469();
 echo $hasil['total'];
