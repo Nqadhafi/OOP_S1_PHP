@@ -5,6 +5,7 @@ $login_462 = $_POST['462_LoginVia'] ?? '';
 $nama_462 = $_POST['462_NamaPelanggan'] ?? '';
 $nohp_462 = $_POST['462_NomorHP'] ?? '';
 $user_462 = $_POST['462_Username'] ?? '';
+$password_462 = $_POST['462_Password'] ?? '';
 
 $rank_469 = $_POST['469_rank'] ?? '';
 $jumlah_469 = $_POST['469_jumlahBintang'] ?? 0;
@@ -40,28 +41,29 @@ else{
 }
 
 // Deklarasi total harga
-$total_harga = $harga_basic * $jumlah_469 + $paket_469;
+// $total_harga = $harga_basic * $jumlah_469 + $paket_469;
 
-echo $total_harga;
+// echo $total_harga;
 
-// class customer_462{
-// protected $cust462_loginvia;
-// protected $cust462_nama;
-// protected $cust462_nohp;
-// protected $cust462_userid;
-// protected $cust462_password;
+// class data customer
+class customer_462{
+protected $cust462_loginvia;
+protected $cust462_nama;
+protected $cust462_nohp;
+protected $cust462_userid;
+protected $cust462_password;
 
-// }
+public function __construct($loginvia,$nama,$nohp,$userid,$password)
+{
+    $this->cust462_loginvia = $loginvia;
+    $this->cust462_nama = $nama;
+    $this->cust462_nohp = $nohp;
+    $this->cust462_userid = $userid;
+    $this->cust462_password = $password;
+}
+}
 
-// class product_469 extends customer_462{
-// protected $prod469_rank;
-// protected $prod469_jumlahbintang;
-// protected $prod469_tipepaket;
-// protected $prod469_metodepembayaran;
-// protected $prod469_survey;
-// }
+$coba = new customer_462($login_462,$nama_462,$nohp_462,$user_462,$password_462);
 
-// class informasi_order_462_469 extends product_469{
-
-// }
+var_dump($coba);
 ?>
