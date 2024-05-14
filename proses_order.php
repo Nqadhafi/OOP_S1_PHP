@@ -1,5 +1,4 @@
 <?php
-
 //Menangkap inputan dari form ke dalam variable
 $login_462 = $_POST['462_LoginVia'] ?? '';
 $nama_462 = $_POST['462_NamaPelanggan'] ?? '';
@@ -14,21 +13,20 @@ $metode_469 = $_POST['469_MetodePembayaran'] ?? '';
 $survey_469 = $_POST['469_Survey'] ?? '';
 
 
-// Deklarasi variable harga basic
-$harga_basic;
+
 // Memberikan harga basic sesuai rank
 switch ($rank_469) {
     case "Rank GrandMaster":
-        $harga_basic = 5000;
+        $rank_469 = 5000;
         break;
     case "Rank Epic":
-        $harga_basic = 10000;
+        $rank_469 = 10000;
         break;
     case "Rank Legend":
-        $harga_basic = 15000;
+        $rank_469 = 15000;
         break;
     case "Rank Mythic":
-        $harga_basic = 20000;
+        $rank_469 = 20000;
         break;
 }
 
@@ -39,13 +37,6 @@ if($paket_469 == "Turbo"){
 else{
     $paket_469 = 0;
 }
-
-// Deklarasi total harga
-// $total_harga = $harga_basic * $jumlah_469 + $paket_469;
-
-// echo $total_harga;
-
-// class data customer
 class customer_462{
 protected $cust462_loginvia;
 protected $cust462_nama;
@@ -63,7 +54,46 @@ public function __construct($loginvia,$nama,$nohp,$userid,$password)
 }
 }
 
-$coba = new customer_462($login_462,$nama_462,$nohp_462,$user_462,$password_462);
+class product_469 extends customer_462{
+    protected $prod469_rank;
+    protected $prod469_jumlah;
+    protected $prod469_paket;
+    protected $prod469_metode;
+    protected $prod469_survey;
 
-var_dump($coba);
+  public function __construct($loginvia,$nama,$nohp,$userid,$password,$rank,$jumlah,$paket,$metode,$survey){
+    parent::__construct($loginvia,$nama,$nohp,$userid,$password);
+        $this->prod469_rank = $rank;
+        $this->prod469_jumlah = $jumlah;
+        $this->prod469_paket = $paket;
+        $this->prod469_metode = $metode;
+        $this->prod469_survey = $survey;
+  }
+}
+
+
+class order_462_469 extends product_469{
+    public function getOrderInfo_462_469(){
+        $total = $this->prod469_rank * $this->prod469_jumlah + $this->prod469_paket;
+        return [
+            'login' => $this->cust462_loginvia,
+            'nama' => $this->cust462_nama,
+            'nohp' => $this->cust462_nohp,
+            'username' => $this->cust462_userid,
+            'password' => $this->cust462_password,
+            'rank' => $this->prod469_rank,
+            'jumlah' => $this->prod469_jumlah,
+            'paket' => $this->prod469_paket,
+            'metode' => $this->prod469_survey,
+            'survey' => $this->prod469_survey,
+            'total' => $total,
+        ];
+    }
+}
+
+
+
+$coba = new order_462_469($login_462,$nama_462,$nohp_462,$user_462,$password_462,$rank_469,$jumlah_469,$paket_469,$metode_469,$survey_469);
+$hasil =  $coba->getOrderInfo_462_469();
+echo $hasil['total'];
 ?>
