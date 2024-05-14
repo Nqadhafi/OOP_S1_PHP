@@ -47,7 +47,7 @@
       <label for="469_jumlahBintang">
         <h6>Jumlah Bintang:</h6>
       </label>
-      <input type="number" class="form-control" id="469_jumlahBintang" name="469_jumlahBintang" min="1" step="1">
+      <input type="number" class="form-control" id="469_jumlahBintang" name="469_jumlahBintang" min="1" step="1" value="1">
     </div>
   <!-- Kecepatan Order -->
   <h6>Kecepatan Order :</h6>
