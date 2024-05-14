@@ -14,7 +14,7 @@
     <h1>Jasa Joki Mobile Legends Bang Bang</h1>
   </div>
   <!-- Form dengan method post untuk menigirim data -->
-  <form action="" method="post">
+  <form action="proses_order.php" method="post">
     <!-- Memanggil form dengan fungsi include supaya codingan lebih rapi -->
   <?php include ('./form/462_customer.php'); ?>
   <br>
