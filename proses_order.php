@@ -1,32 +1,34 @@
 <?php
 
 //Menangkap inputan dari form ke dalam variable
-$login_462 = $_POST['462_LoginVia'];
-$nama_462 = $_POST['462_NamaPelanggan'];
-$nohp_462 = $_POST['462_NomorHP'];
-$user_462 = $_POST['462_Username'];
+$login_462 = $_POST['462_LoginVia'] ?? '';
+$nama_462 = $_POST['462_NamaPelanggan'] ?? '';
+$nohp_462 = $_POST['462_NomorHP'] ?? '';
+$user_462 = $_POST['462_Username'] ?? '';
 
-$rank_469 = $_POST['469_rank'];
-$jumlah_469 = $_POST['469_jumlahBintang'];
-$paket_469 = $_POST['469_KecepatanPaket'];
-$metode_469 = $_POST['469_MetodePembayaran'];
-$survey_469 = $_POST['469_Survey'];
+$rank_469 = $_POST['469_rank'] ?? '';
+$jumlah_469 = $_POST['469_jumlahBintang'] ?? 0;
+$paket_469 = $_POST['469_KecepatanPaket'] ?? '';
+$metode_469 = $_POST['469_MetodePembayaran'] ?? '';
+$survey_469 = $_POST['469_Survey'] ?? '';
 
 
 // Deklarasi variable harga basic
 $harga_basic;
 // Memberikan harga basic sesuai rank
-if ($rank_469 == "Rank GrandMaster") {
-    $harga_basic = 5000;
-} 
-else if($rank_469 == "Rank Epic"){
-    $harga_basic = 10000;
-}
-else if($rank_469 == "Rank Legend"){
-    $harga_basic = 15000;
-}
-else if($rank_469 == "Rank Mythic"){
-    $harga_basic = 20000;
+switch ($rank_469) {
+    case "Rank GrandMaster":
+        $harga_basic = 5000;
+        break;
+    case "Rank Epic":
+        $harga_basic = 10000;
+        break;
+    case "Rank Legend":
+        $harga_basic = 15000;
+        break;
+    case "Rank Mythic":
+        $harga_basic = 20000;
+        break;
 }
 
 //Memberikan nilai baru pada variable kecepatan paket
@@ -40,6 +42,7 @@ else{
 // Deklarasi total harga
 $total_harga = $harga_basic * $jumlah_469 + $paket_469;
 
+echo $total_harga;
 
 // class customer_462{
 // protected $cust462_loginvia;
@@ -61,5 +64,4 @@ $total_harga = $harga_basic * $jumlah_469 + $paket_469;
 // class informasi_order_462_469 extends product_469{
 
 // }
-echo $total_harga;
 ?>
