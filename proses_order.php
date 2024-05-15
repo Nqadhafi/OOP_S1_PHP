@@ -91,7 +91,7 @@ class order_462_469 extends product_469{
             'rank_num' => $this->prod469_rank_numerik,
             'jumlah' => $this->prod469_jumlah,
             'paket' => $this->prod469_paket,
-            'metode' => $this->prod469_survey,
+            'metode' => $this->prod469_metode,
             'survey' => $this->prod469_survey,
             'total' => $total,
         ];
