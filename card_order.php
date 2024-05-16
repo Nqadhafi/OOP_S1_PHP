@@ -19,10 +19,15 @@
   <div class="card-header bg-transparent border-success">Informasi Order</div>
   <div class="card-body">
     <h5 class="card-title">Paket Joki <?php echo $orderInfo_462_469['rank_char'] ?> - <?php echo $orderInfo_462_469['jumlah'] ?> Bintang</h5>
+    <!-- Login Via -->
+    <span class="d-flex justify-content-between">
+       <h6 class="card-text">Login Via</h6>
+       <p> <?php echo $orderInfo_462_469['login'] ?></p>
+       </span>
     <!-- Nama Customer -->
     <span class="d-flex justify-content-between">
        <h6 class="card-text">Nama Customer</h6>
-       <p> <?php echo $orderInfo_462_469['login'] ?></p>
+       <p> <?php echo $orderInfo_462_469['nama'] ?></p>
        </span>
        <!-- Nomor HP -->
     <span class="d-flex justify-content-between">

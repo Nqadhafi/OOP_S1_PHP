@@ -43,7 +43,7 @@ protected $cust462_nohp;
 protected $cust462_userid;
 protected $cust462_password;
 
-public function __construct($loginvia,$nama,$nohp,$userid,$password)
+public function __construct($loginvia,$nama,$nohp,$userid,$password) //5 parameter untuk menangkap data untuk kebutuhan eksekusi kode di bawah
 {
     $this->cust462_loginvia = $loginvia;
     $this->cust462_nama = $nama;
@@ -52,6 +52,7 @@ public function __construct($loginvia,$nama,$nohp,$userid,$password)
     $this->cust462_password = $password;
 }
 }
+
 
 //Class Produk, mewarisi porperti & Construct method yang ada di Class Customer
 class product_469 extends customer_462{
@@ -82,7 +83,7 @@ class order_462_469 extends product_469{
     protected function setOrderInfo_462(){
         $total = $this->prod469_rank_numerik * $this->prod469_jumlah + $this->prod469_paket;
         return [
-            'login' => $this->cust462_loginvia,
+            'login' => $this->cust462_loginvia, 
             'nama' => $this->cust462_nama,
             'nohp' => $this->cust462_nohp,
             'username' => $this->cust462_userid,
@@ -91,7 +92,7 @@ class order_462_469 extends product_469{
             'rank_num' => $this->prod469_rank_numerik,
             'jumlah' => $this->prod469_jumlah,
             'paket' => $this->prod469_paket,
-            'metode' => $this->prod469_survey,
+            'metode' => $this->prod469_metode,
             'survey' => $this->prod469_survey,
             'total' => $total,
         ];
@@ -110,8 +111,10 @@ class order_462_469 extends product_469{
     }
 }
 
+//membuat objek baru yang ditampung ke variable hasilOrder_462_469 dari class order_462_469
 $hasilOrder_462_469 = new order_462_469($login_462, $nama_462, $nohp_462, $user_462, $password_462, $rank_input_469, $rank_469, $jumlah_469, $paket_469, $metode_469, $survey_469);
-$orderInfo_462_469 = $hasilOrder_462_469->getOrderInfo_469();
+
+$orderInfo_462_469 = $hasilOrder_462_469->getOrderInfo_469();//menampung data dari method getorderinfo_469() dari dalam class order ke dalam variable baru untuk nanti digunakan
 
 include('card_order.php');
 ?>
