@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./css/custom.css">
-<form action="">
+<form method="POST">
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
   <h5>2. Pilih produk yang mau kamu beli</h5>
@@ -80,5 +80,99 @@
   <div class="text-center mt-5 mb-3">
   <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
   </div>
+  <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+      //class product469 mempunyai 5 properti protected dan 1 construct method public
+      class Product469{
+        protected $rank469;
+        protected $jumlah469;
+        protected $kecepatan469;
+        protected $metode469;
+        protected $survey469;
+
+        //memberi nilai kepada properti di atas melalui tangkapan data dari parameter
+        public function __construct($rank, $jumlah, $kecepatan, $metode,$survey){
+          $this->rank469 = $rank;
+          $this->jumlah469 = $jumlah;
+          $this->kecepatan469 = $kecepatan;
+          $this->metode469 = $metode;
+          $this->survey469 = $survey;
+        }
+      }
+
+      //Class proses469 mewarisi properti & construct dari class product469
+      class Proses469 extends Product469{
+        protected function setData469(){
+          //membuat variable baru nominalRank untuk set harga rank awal
+          $nominalRank = NULL;
+          //membuat variable baru paket untuk set harga kecepatan paket
+          $paket = NULL;
+          // memberi nilai pada nominalRank berdasar value inputan rank
+          switch($this->rank469){
+            case "Rank GrandMaster":
+              $nominalRank = 5000;
+              break;
+          case "Rank Epic":
+            $nominalRank = 10000;
+              break;
+          case "Rank Legend":
+            $nominalRank = 15000;
+              break;
+          case "Rank Mythic":
+            $nominalRank = 20000;
+              break;
+          }
+          // memberi nilai harga pada paket berdasarkan value inputan
+          if($this->kecepatan469 == "Turbo"){
+            $paket = 15000;
+          }
+          else{
+            $paket = 0;
+          }
+          //rumus memberi total harga joki
+          $totalHarga = $nominalRank * $this->jumlah469 + $paket;
+
+      echo "<div class='container-fluid p-3 w-75 rounded border border-success mt-4'>";
+      echo "<h5>Data Order Anda:</h5><hr>";
+      echo "<p><strong>Paket Joki $this->rank469 - $this->jumlah469 Bintang</strong> </p>";
+      echo "<p><strong>Tipe Paket:</strong> $this->kecepatan469</p>";
+      echo "<p><strong>Metode Pembayaran:</strong> $this->metode469</p>";
+      echo "<p><strong>Referal :</strong> $this->survey469</p>";
+      echo "<p><strong>Total Bayar:</strong> $totalHarga</p>";
+      echo "</div>";
+        }
+
+      public function displayData469(){
+        //deklarasi variable isi array metode pembayaran diblokir
+        $metodeBlokir = ["DANA","OVO",""];
+
+        //jika value input metode pembayaran ada yang sama dengan array metodeBlokir, maka jalankan kode di bawah
+        if(in_array($this->metode469,$metodeBlokir)){
+          echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
+          echo "<h5>Metode pembayaran sedang bermasalah, silahkan gunakan yang lain.</h5>";
+          echo "</div>";
+        }
+        //jika tidak ada yang sama dengan metodeBlokir, maka tampilkan output dari methode protected setData
+        //methode ini bersifat public sehingga dapat memanggil yang bersifat protected di satu class yang sama
+        else{
+          $this->setData469();
+        }
+      }
+
+      }
+      //membuat objek dengan parameter tangkapan dari submit POST
+      $berinilai469 = new Proses469(
+          $_POST['469_rank'],
+          $_POST['469_jumlahBintang'],
+          $_POST['469_KecepatanPaket'],
+          $_POST['469_MetodePembayaran'],
+          $_POST['469_Survey']
+      );
+
+      //mengeksekusi method displaydata469
+      echo $berinilai469->displayData469();
+    }
+
+  ?>
   </div>
 </form>

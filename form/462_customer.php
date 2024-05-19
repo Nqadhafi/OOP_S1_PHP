@@ -71,12 +71,12 @@ class Proses_462 extends Customer_462{ //class proses mewarisi properti & method
 //method public untuk mengambil data dari method setData yang bersifat protected
     public function displayData462() {
       //deklarasi variable email yang digunakan,isinya array
-      $emaildigunakan = ["abcd@gmail.com","haikal@gmail.com","coba@gmail.com"];
+      $emaildigunakan = ["abcd@gmail.com","haikal@gmail.com","coba@gmail.com",""];
       
         if(in_array($this->userid462,$emaildigunakan)){
           //jika data di dalam inputan userid ada yang sama dengan yang di dalam array $emaildigunakan, maka eksekusi kode dibawah
           echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
-          echo "<h5>Email sudah digunakan.</h5>";
+          echo "<h5>Email sudah digunakan atau ada data yang kosong.</h5>";
           echo "</div>";
           return;
         }
