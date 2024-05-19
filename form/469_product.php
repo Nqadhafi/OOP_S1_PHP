@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="./css/custom.css">
-<form method="POST">
+<!-- <form method="POST"> -->
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
   <h5>2. Pilih produk yang mau kamu beli</h5>
@@ -77,9 +77,9 @@
     <label for="Survey" class="form-label"><h6>Darimana kamu mendengar tentang kami?</h6></label>
     <input type="text" class="form-control" name="469_Survey" id="Survey">
   </div>
-  <div class="text-center mt-5 mb-3">
+  <!-- <div class="text-center mt-5 mb-3">
   <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
-  </div>
+  </div> -->
   <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       //class product469 mempunyai 5 properti protected dan 1 construct method public
@@ -145,26 +145,33 @@
       public function displayData469(){
         //deklarasi variable isi array metode pembayaran diblokir
         $metodeBlokir = ["DANA","OVO",""];
-
-        //jika value input metode pembayaran ada yang sama dengan array metodeBlokir, maka jalankan kode di bawah
-        if(in_array($this->metode469,$metodeBlokir)){
-          echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
-          echo "<h5>Metode pembayaran sedang bermasalah, silahkan gunakan yang lain.</h5>";
-          echo "</div>";
+        //deklarasi array inputan
+        $arrayInputProd = [
+          $this->rank469,
+          $this->jumlah469,
+          $this->kecepatan469,
+          $this->metode469,
+          $this->survey469,
+      ];
+      foreach ($arrayInputProd as $dataProd) {
+        if (empty($dataProd) || in_array($this->metode469, $metodeBlokir)) {
+            // Jika data di dalam inputan metode ada yang sama dengan yang di dalam array $metodeBlokir atau, maka eksekusi kode dibawah
+            echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
+            echo "<h5>Pembayaran tidak bisa digunakan atau ada data yang kosong.</h5>";
+            echo "</div>";
+            return;
         }
-        //jika tidak ada yang sama dengan metodeBlokir, maka tampilkan output dari methode protected setData
-        //methode ini bersifat public sehingga dapat memanggil yang bersifat protected di satu class yang sama
-        else{
-          $this->setData469();
-        }
+    }
+    // Jika tidak ada yang sama dan terisi semua, maka tampilkan data yang diambil dari setData
+    $this->setData469();
       }
 
       }
       //membuat objek dengan parameter tangkapan dari submit POST
       $berinilai469 = new Proses469(
-          $_POST['469_rank'],
+          $_POST['469_rank']?? '',
           $_POST['469_jumlahBintang'],
-          $_POST['469_KecepatanPaket'],
+          $_POST['469_KecepatanPaket'] ?? '',
           $_POST['469_MetodePembayaran'],
           $_POST['469_Survey']
       );
@@ -175,4 +182,4 @@
 
   ?>
   </div>
-</form>
+<!-- </form> -->

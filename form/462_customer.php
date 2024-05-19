@@ -1,4 +1,4 @@
-<form method="POST">
+<!-- <form method="POST"> -->
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
   <h5>1. Masukkan data diri kamu</h5>
@@ -30,9 +30,6 @@
     <label for="462_Password" class="form-label">Password</label>
     <input type="Password" class="form-control" name="462_Password">
   </div>
-  </div>
-  <div class="text-center mt-5 mb-3">
-  <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
   </div>
   <!-- Codingan PHP Objek -->
 
@@ -69,22 +66,28 @@ class Proses_462 extends Customer_462{ //class proses mewarisi properti & method
       echo "</div>";
     }
 //method public untuk mengambil data dari method setData yang bersifat protected
-    public function displayData462() {
-      //deklarasi variable email yang digunakan,isinya array
-      $emaildigunakan = ["abcd@gmail.com","haikal@gmail.com","coba@gmail.com",""];
-      
-        if(in_array($this->userid462,$emaildigunakan)){
-          //jika data di dalam inputan userid ada yang sama dengan yang di dalam array $emaildigunakan, maka eksekusi kode dibawah
+public function displayData462() {
+  // Deklarasi variable email yang digunakan, isinya array
+  $emaildigunakan = ["abcd@gmail.com", "haikal@gmail.com", "coba@gmail.com"];
+  $arrayInputCust = [
+      $this->loginvia462,
+      $this->nama462,
+      $this->nohp462,
+      $this->userid462,
+      $this->password462
+  ];
+  foreach ($arrayInputCust as $dataCust) {
+      if (empty($dataCust) || in_array($this->userid462, $emaildigunakan)) {
+          // Jika data di dalam inputan userid ada yang sama dengan yang di dalam array $emaildigunakan atau ada inputan kosong, maka eksekusi kode dibawah
           echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
           echo "<h5>Email sudah digunakan atau ada data yang kosong.</h5>";
           echo "</div>";
           return;
-        }
-        //jika tidak ada yang sama, maka tampilkan data yang diambil dari setData
-        else{
-         $this->setData462();
-        }
       }
+  }
+  // Jika tidak ada yang sama dan terisi semua, maka tampilkan data yang diambil dari setData
+  $this->setData462();
+}
 
     }
 
@@ -101,5 +104,5 @@ $berinilai462 = new Proses_462(
 echo $berinilai462->displayData462();
 }?>
 </div>
-</form>
+<!-- </form> -->
 
