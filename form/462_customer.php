@@ -4,7 +4,8 @@
   <form method="post">
 <div class="container-fluid bg-light mt-5 mx-auto p-3 w-75 rounded border border-warning">
 <div>
-  <h5>1. Masukkan data diri kamu</h5>
+  <h1 class="text-center">Haikal Store</h1>
+  <h5>Masukkan detail order di bawah</h5>
   <hr >
 </div>
   <div class="row">
