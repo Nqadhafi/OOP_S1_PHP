@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="./css/custom.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 <!-- <form method="POST"> -->
   <form method="post">
-<div class="container-fluid p-3 w-75 rounded border border-warning">
+<div class="container-fluid bg-light mt-5 mx-auto p-3 w-75 rounded border border-warning">
 <div>
   <h5>2. Pilih produk yang mau kamu beli</h5>
   <hr >
@@ -14,7 +14,7 @@
       <input class="form-check-input me-3" type="radio" name="469_rank" id="469_rankGrandMaster" value="Rank GrandMaster">
       <label class="form-check-label" for="469_rankGrandMaster">
       <h5>
-      <img src="./assets/grandmaster_icon.png" class="rank-icon_462">
+      <img src="../assets/grandmaster_icon.png" class="rank-icon_462">
       Rank GrandMaster</h5>   
       </label>
     </div>
@@ -22,7 +22,7 @@
       <input class="form-check-input me-3" type="radio" name="469_rank" id="469_rankEpic" value="Rank Epic">
       <label class="form-check-label" for="469_rankEpic">
         <h5>
-      <img src="./assets/epic_icon.png" class="rank-icon_462">  
+      <img src="../assets/epic_icon.png" class="rank-icon_462">  
       Rank Epic 
       </h5>
       </label>
@@ -31,7 +31,7 @@
       <input class="form-check-input me-3" type="radio" name="469_rank" id="469_rankLegend" value="Rank Legend">
       <label class="form-check-label" for="469_rankLegend">
         <h5>
-      <img src="./assets/legend_icon.png" class="rank-icon_462">
+      <img src="../assets/legend_icon.png" class="rank-icon_462">
        Rank Legend 
       </h5>
       </label>
@@ -40,7 +40,7 @@
       <input class="form-check-input me-3" type="radio" name="469_rank" id="469_rankMythic" value="Rank Mythic">
       <label class="form-check-label" for="469_rankMythic">
         <h5>
-      <img src="./assets/mythic_icon.png" class="rank-icon_462">  Rank Mythic 
+      <img src="../assets/mythic_icon.png" class="rank-icon_462">  Rank Mythic 
       </h5>
       </label>
     </div>
@@ -80,7 +80,10 @@
     <input type="text" class="form-control" name="469_Survey" id="Survey">
   </div>
   <div class="text-center mt-5 mb-3">
-  <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
+  <button type="submit" class="btn btn-primary mx-2 px-5 py-3">Submit</button>
+  <a href="../">
+  <div class="btn btn-primary px-5 py-3">Kembali</div>
+  </a>
   </div>
   <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

@@ -1,8 +1,8 @@
-<link rel="stylesheet" href="./css/custom.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/custom.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 <!-- <form method="POST"> -->
   <form method="post">
-<div class="container-fluid p-3 w-75 rounded border border-warning">
+<div class="container-fluid bg-light mt-5 mx-auto p-3 w-75 rounded border border-warning">
 <div>
   <h5>1. Masukkan data diri kamu</h5>
   <hr >
@@ -35,7 +35,10 @@
   </div>
   </div>
   <div class="text-center mt-5 mb-3">
-  <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
+  <button type="submit" class="btn btn-primary mx-2 px-5 py-3">Submit</button>
+  <a href="../">
+  <div class="btn btn-primary px-5 py-3">Kembali</div>
+  </a>
   </div>
   <!-- Codingan PHP Objek -->
 
@@ -110,7 +113,9 @@ $berinilai462 = new Proses_462(
 echo $berinilai462->displayData462();
 }?>
 </div>
+
 </form>
+
 <script src="./css/bootstrap.bundle.min.js"></script>
 <!-- </form> -->
 
