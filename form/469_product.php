@@ -155,15 +155,6 @@ class Proses_469 extends dataOrder_469{ //class proses mewarisi properti & metho
 public function displayData469() {
   // Deklarasi variable email yang digunakan, isinya array
   $emaildigunakan = ["abcd@gmail.com", "david@gmail.com", "robby123@gmail.com"];
-  $arrayInputCust = [
-    $this->nama469,
-    $this->nohp469,
-    $this->email469,
-    $this->password469,
-    $this->rank469,
-    $this->jumlah469,
-    $this->metode469,
-  ];
       if (in_array($this->email469, $emaildigunakan)) {
           // Jika data di dalam inputan email ada yang sama dengan yang di dalam array $emaildigunakan  maka eksekusi kode dibawah
           echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
