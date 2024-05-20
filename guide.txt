@@ -35,3 +35,19 @@ Total yang harus dibayar : $total
 <i>Info dari : $Survey</i>
 
 
+Update
+462_NamaPelanggan
+462_NomorHP
+462_Email
+462_Password
+462_Rank
+462_Jumlah
+462_Metode
+
+469_NamaPelanggan
+469_NomorHP
+469_Email
+469_Password
+469_Rank
+469_Jumlah
+469_Metode
