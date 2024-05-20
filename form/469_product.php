@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="./css/custom.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
 <!-- <form method="POST"> -->
   <form method="post">
 <div class="container-fluid p-3 w-75 rounded border border-warning">
@@ -184,4 +185,5 @@
   ?>
   </div>
   </form>
+  <script src="./css/bootstrap.bundle.min.js"></script>
 <!-- </form> -->
