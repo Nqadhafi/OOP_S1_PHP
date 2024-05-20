@@ -17,16 +17,16 @@
   
     <!-- Memanggil form dengan fungsi include supaya codingan lebih rapi -->
     <div class="text-center mt-5 mb-3">
-      <h5>Klik Di Sini Untuk Memasukkan Data Diri</h5>
+      <h5>Klik Di Sini Untuk Masuk Ke Haikal Store</h5>
       <a href="./form/462_customer.php">
-  <button class="btn btn-primary px-5 py-3">Tambah Data Diri</button>
+  <button class="btn btn-primary px-5 py-3">Click Me!</button>
   </a>
   </div>
   <br>
   <div class="text-center mt-5 mb-3">
-  <h5>Klik Di Sini Untuk Memasukkan Detil Produk</h5>
+  <h5>Klik Di Sini Untuk Masuk Ke David Store</h5>
   <a href="./form/469_product.php">
-  <button class="btn btn-primary px-5 py-3">Pilih Paket Joki</button>
+  <button class="btn btn-primary px-5 py-3">Click Me!</button>
   </a>
   </div>
   </div>
