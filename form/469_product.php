@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="./css/custom.css">
 <!-- <form method="POST"> -->
+  <form method="post">
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
   <h5>2. Pilih produk yang mau kamu beli</h5>
@@ -77,9 +78,9 @@
     <label for="Survey" class="form-label"><h6>Darimana kamu mendengar tentang kami?</h6></label>
     <input type="text" class="form-control" name="469_Survey" id="Survey">
   </div>
-  <!-- <div class="text-center mt-5 mb-3">
+  <div class="text-center mt-5 mb-3">
   <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
-  </div> -->
+  </div>
   <?php
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
       //class product469 mempunyai 5 properti protected dan 1 construct method public
@@ -182,4 +183,5 @@
 
   ?>
   </div>
+  </form>
 <!-- </form> -->

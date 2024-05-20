@@ -1,4 +1,5 @@
 <!-- <form method="POST"> -->
+  <form method="post">
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
   <h5>1. Masukkan data diri kamu</h5>
@@ -30,6 +31,9 @@
     <label for="462_Password" class="form-label">Password</label>
     <input type="Password" class="form-control" name="462_Password">
   </div>
+  </div>
+  <div class="text-center mt-5 mb-3">
+  <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
   </div>
   <!-- Codingan PHP Objek -->
 
@@ -104,5 +108,6 @@ $berinilai462 = new Proses_462(
 echo $berinilai462->displayData462();
 }?>
 </div>
+</form>
 <!-- </form> -->
 
