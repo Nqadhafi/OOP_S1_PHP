@@ -155,24 +155,15 @@ class Proses_462 extends dataOrder_462{ //class proses mewarisi properti & metho
 public function displayData462() {
   // Deklarasi variable email yang digunakan, isinya array
   $emaildigunakan = ["abcd@gmail.com", "haikal@gmail.com", "coba@gmail.com"];
-  $arrayInputCust = [
-    $this->nama462,
-    $this->nohp462,
-    $this->email462,
-    $this->password462,
-    $this->rank462,
-    $this->jumlah462,
-    $this->metode462,
-  ];
-  foreach ($arrayInputCust as $dataCust) {
+
       if (in_array($this->email462, $emaildigunakan)) {
           // Jika data di dalam inputan email ada yang sama dengan yang di dalam array $emaildigunakan  maka eksekusi kode dibawah
           echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
-          echo "<h5>Email sudah digunakan atau ada data yang kosong.</h5>";
+          echo "<h5>Email '$this->email462' sudah digunakan.</h5>";
           echo "</div>";
           return;
       }
-  }
+  
   // Jika tidak ada yang sama dan terisi semua, maka tampilkan data yang diambil dari setData
   $this->setData462();
 }
