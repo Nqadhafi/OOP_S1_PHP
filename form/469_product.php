@@ -7,7 +7,6 @@
 </div>
 <!-- Radio Rank -->
 <h6>Pilih Rank yang akan di joki :</h6>
-<input type="hidden" name="form" value="form-prod">
 <div class=" row ms-5 mx-auto">
     <div class="form-check d-flex align-items-center col-md-6">
       <input class="form-check-input me-3" type="radio" name="469_rank" id="469_rankGrandMaster" value="Rank GrandMaster">
@@ -69,7 +68,7 @@
   <h6 class="mt-4">Metode Pembayaran :</h6>
   <select class="form-select" name="469_MetodePembayaran">
   <option selected>Pilih Metode Pembayaran Anda</option>
-  <option value="Dana">Dana</option>
+  <option value="DANA">Dana</option>
   <option value="OVO">OVO</option>
   <option value="Go-Pay">Go-Pay</option>
   <option value="Transfer">Bank Transfer</option>
