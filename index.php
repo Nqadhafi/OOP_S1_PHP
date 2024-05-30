@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['userid'])){
+  return header("Location: ./login.php");
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +27,7 @@
   <br>
   <?php include ('./form/469_product.php'); ?>
 </div>
+<a href="<?php session_destroy() ?>">Logout</a>
 </body>
 <script src="./css/bootstrap.bundle.min.js"></script>
 </html>

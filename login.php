@@ -1,3 +1,31 @@
+<?php
+session_start();
+
+
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    class prosesLogin462{
+        var $userpass = ["2212030462", "462"];
+
+        public function login($user,$password){
+          if($user == $this->userpass[0] && $password == $this->userpass[1]){
+            $_SESSION ['userid'] = "Haikal";
+            header("Location: ./index.php");
+            exit;
+          }
+          else{
+            
+            echo "Login Gagal";
+            return ;
+          }
+      }
+
+    }
+$obj = new prosesLogin462;
+$obj->login($_POST['userID'],$_POST['password']);
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,17 +39,17 @@
 
 <div class="container bg-light my-5 py-4 rounded mx-auto">
 
-    <form action="">
+    <form method="POST">
         <div class="mx-5 px-5">
             <h1 class="text-center">Login</h1>
             <div class="mb-3 ">
             <label for="userID" class="form-label">User ID</label>
-            <input type="email" class="form-control" name="userID">
+            <input type="text" class="form-control" name="userID">
           </div>
           <!-- Password -->
           <div class="mb-3 ">
-            <label for="passWord" class="form-label">Password</label>
-            <input type="Password" class="form-control" name="passWord">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password">
           </div>
           </div>
           <div class="text-center mt-5 mb-3">
