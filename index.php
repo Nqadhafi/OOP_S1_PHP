@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-if(!isset($_SESSION['userid'])){
-  return header("Location: ./login.php");
+//jika session userid tidak ada, maka akan mengalihkan ke halaman login
+if (!isset($_SESSION['userid'])){
+  header("Location: ./login.php");
+  exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +27,12 @@ if(!isset($_SESSION['userid'])){
   <?php include ('./form/462_customer.php'); ?>
   <br>
   <?php include ('./form/469_product.php'); ?>
+  <a href="logout.php">
+    <button class="btn btn-primary">Logout</button>
+    </a>
 </div>
-<a href="<?php session_destroy() ?>">Logout</a>
+
 </body>
+
 <script src="./css/bootstrap.bundle.min.js"></script>
 </html>

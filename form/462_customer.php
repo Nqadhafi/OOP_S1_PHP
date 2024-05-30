@@ -1,3 +1,14 @@
+<?php
+//jika sesion user tidak ada, maka akan mengalihkan ke login.php, mencegah mengakses form via url langsung
+if (!isset($_SESSION['userid']) ){
+  header("Location: ../index.php");
+  exit;
+}
+//jika session user ada, tapi valuenya bukan Haikal, maka form di bawah tidak akan muncul
+else if ($_SESSION['userid'] != "Haikal"){
+  return;
+}
+?>
 <form method="POST">
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
