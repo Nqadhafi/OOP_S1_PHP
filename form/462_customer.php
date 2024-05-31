@@ -1,54 +1,7 @@
-<?php
-//jika sesion user tidak ada, maka akan mengalihkan ke login.php, mencegah mengakses form via url langsung
-if (!isset($_SESSION['userid']) ){
-  header("Location: ../index.php");
-  exit;
-}
-//jika session user ada, tapi valuenya bukan Haikal, maka form di bawah tidak akan muncul
-else if ($_SESSION['userid'] != "Haikal"){
-  return;
-}
-?>
-<form method="POST">
-<div class="container-fluid p-3 w-75 rounded border border-warning">
-<div>
-  <h5>1. Masukkan data diri kamu</h5>
-  <hr >
-</div>
-  <div class="row">
-    <!-- Login Via -->
-  <div class="mb-3 col-md-6">
-    <label for="462_LoginVia" class="form-label">Login Via</label>
-    <input type="text" class="form-control" name="462_LoginVia">
-  </div>
-  <!-- Nama pelanggan -->
-  <div class="mb-3 col-md-6">
-    <label for="462_NamaPelanggan" class="form-label">Nama Pelanggan</label>
-    <input type="text" class="form-control" name="462_NamaPelanggan">
-  </div>
-  <!-- Nomor HP -->
-  <div class="mb-3 col-md-6">
-    <label for="462_NomorHP" class="form-label">Nomor HP</label>
-    <input type="text" class="form-control" name="462_NomorHP">
-  </div>
-  <!-- User ID -->
-  <div class="mb-3 col-md-6">
-    <label for="462_Username" class="form-label">E-mail</label>
-    <input type="email" class="form-control" name="462_Username">
-  </div>
-  <!-- Password -->
-  <div class="mb-3 col-md-6">
-    <label for="462_Password" class="form-label">Password</label>
-    <input type="Password" class="form-control" name="462_Password">
-  </div>
-  </div>
-  <div class="text-center mt-5 mb-3">
-  <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
-  </div>
   <!-- Codingan PHP Objek -->
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST" ) { //Jika form mengirim request submit POST maka kode dibawah baru dijalanakn
+  <?php
+ //Jika form mengirim request submit POST maka kode dibawah baru dijalanakn
 class Customer_462{ //deklarasi class customer
   protected $loginvia462; //properti bersifat protected
   protected $nama462;
@@ -108,8 +61,9 @@ public function displayData462() {
   $this->setData462();
 }
 
-    }
 
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 //membuat objek dengan parameter tangkapan data dari POST
 $berinilai462 = new Proses_462(
                 $_POST['462_LoginVia'] ?? '',
@@ -120,8 +74,52 @@ $berinilai462 = new Proses_462(
 );
 
 //mengeksekusi logika yang ada di method displayData
-echo $berinilai462->displayData462();
+
 }?>
+<form method="POST">
+<div class="container-fluid p-3 w-75 rounded border border-warning">
+<div>
+  <h5>1. Masukkan data diri kamu</h5>
+  <hr >
+</div>
+  <div class="row">
+    <!-- Login Via -->
+  <div class="mb-3 col-md-6">
+    <label for="462_LoginVia" class="form-label">Login Via</label>
+    <input type="text" class="form-control" name="462_LoginVia">
+  </div>
+  <!-- Nama pelanggan -->
+  <div class="mb-3 col-md-6">
+    <label for="462_NamaPelanggan" class="form-label">Nama Pelanggan</label>
+    <input type="text" class="form-control" name="462_NamaPelanggan">
+  </div>
+  <!-- Nomor HP -->
+  <div class="mb-3 col-md-6">
+    <label for="462_NomorHP" class="form-label">Nomor HP</label>
+    <input type="text" class="form-control" name="462_NomorHP">
+  </div>
+  <!-- User ID -->
+  <div class="mb-3 col-md-6">
+    <label for="462_Username" class="form-label">E-mail</label>
+    <input type="email" class="form-control" name="462_Username">
+  </div>
+  <!-- Password -->
+  <div class="mb-3 col-md-6">
+    <label for="462_Password" class="form-label">Password</label>
+    <input type="Password" class="form-control" name="462_Password">
+  </div>
+  </div>
+  <div class="text-center mt-5 mb-3">
+  <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
+  </div>
+  
+  <!-- Jika objek di inisialisasi maka tampilkan method untuk menampilkan data -->
+  <?php
+  if(isset($berinilai462)) {
+    echo $berinilai462->displayData462();
+  }
+  ?>
+
 </div>
 </form>
 

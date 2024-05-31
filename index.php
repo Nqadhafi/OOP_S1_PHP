@@ -1,11 +1,11 @@
 <?php
-session_start();
+// session_start();
 
-//jika session userid tidak ada, maka akan mengalihkan ke halaman login
-if (!isset($_SESSION['userid'])){
-  header("Location: ./login.php");
-  exit;
-}
+// //jika session userid tidak ada, maka akan mengalihkan ke halaman login
+// if (!isset($_SESSION['userid'])){
+//   header("Location: ./login.php");
+//   exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">

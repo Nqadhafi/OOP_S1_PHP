@@ -1,14 +1,109 @@
-<?php
+ <?php
+    
+    //class product469 mempunyai 5 properti protected dan 1 construct method public
+    class Product469{
+      protected $rank469;
+      protected $jumlah469;
+      protected $kecepatan469;
+      protected $metode469;
+      protected $survey469;
 
-//jika sesion user tidak ada, maka akan mengalihkan ke login.php, mencegah mengakses form via url langsung
-if (!isset($_SESSION['userid']) ){
-  header("Location: ../index.php");
-  exit;
-}
-//jika session user ada, tapi valuenya bukan David, maka form di bawah tidak akan muncul
-else if ($_SESSION['userid'] != "David"){
-  return;
-}
+      //memberi nilai kepada properti di atas melalui tangkapan data dari parameter
+      public function __construct($rank, $jumlah, $kecepatan, $metode,$survey){
+        $this->rank469 = $rank;
+        $this->jumlah469 = $jumlah;
+        $this->kecepatan469 = $kecepatan;
+        $this->metode469 = $metode;
+        $this->survey469 = $survey;
+      }
+    }
+
+    //Class proses469 mewarisi properti & construct dari class product469
+    class Proses469 extends Product469{
+      protected function setData469(){
+        //membuat variable baru nominalRank untuk set harga rank awal
+        $nominalRank = NULL;
+        //membuat variable baru paket untuk set harga kecepatan paket
+        $paket = NULL;
+        // memberi nilai pada nominalRank berdasar value inputan rank
+        switch($this->rank469){
+          case "Rank GrandMaster":
+            $nominalRank = 5000;
+            break;
+        case "Rank Epic":
+          $nominalRank = 10000;
+            break;
+        case "Rank Legend":
+          $nominalRank = 15000;
+            break;
+        case "Rank Mythic":
+          $nominalRank = 20000;
+            break;
+        }
+        // memberi nilai harga pada paket berdasarkan value inputan
+        if($this->kecepatan469 == "Turbo"){
+          $paket = 15000;
+        }
+        else{
+          $paket = 0;
+        }
+        //rumus memberi total harga joki
+        $totalHarga = $nominalRank * $this->jumlah469 + $paket;
+
+    echo "<div class='container-fluid p-3 w-75 rounded border border-success mt-4'>";
+    echo "<h5>Data Order Anda:</h5><hr>";
+    echo "<p><strong>Paket Joki $this->rank469 - $this->jumlah469 Bintang</strong> </p>";
+    echo "<p><strong>Tipe Paket:</strong> $this->kecepatan469</p>";
+    echo "<p><strong>Metode Pembayaran:</strong> $this->metode469</p>";
+    echo "<p><strong>Referal :</strong> $this->survey469</p>";
+    echo "<p><strong>Total Bayar:</strong> $totalHarga</p>";
+    echo "</div>";
+      }
+
+    public function displayData469(){
+      //deklarasi variable isi array metode pembayaran diblokir
+      $metodeBlokir = ["DANA","OVO"];
+      //deklarasi array inputan
+      $arrayInputProd = [
+        $this->rank469,
+        $this->jumlah469,
+        $this->kecepatan469,
+        $this->metode469,
+        $this->survey469,
+    ];
+    foreach ($arrayInputProd as $dataProd) {
+      if (in_array($this->metode469, $metodeBlokir)) {
+          // Jika data di dalam inputan metode ada yang sama dengan yang di dalam array $metodeBlokir atau, maka eksekusi kode dibawah
+          echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
+          echo "<h5>Pembayaran menggunakan '$this->metode469' sedang tidak bisa digunakan.</h5>";
+          echo "</div>";
+          return;
+      }
+      //jika inputan data kosong, tidak menampilkan apa-apa
+      else if (empty($dataProd)){
+        echo "";
+        return;
+      }
+  }
+  // Jika tidak ada yang sama dan terisi semua, maka tampilkan data yang diambil dari setData
+  $this->setData469();
+    }
+
+    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
+    //membuat objek dengan parameter tangkapan dari submit POST
+    $berinilai469 = new Proses469(
+        $_POST['469_rank']?? '',
+        $_POST['469_jumlahBintang'] ?? '',
+        $_POST['469_KecepatanPaket'] ?? '',
+        $_POST['469_MetodePembayaran'] ?? '',
+        $_POST['469_Survey'] ?? ''
+    );
+
+    //mengeksekusi method displaydata469
+    
+  }
+
 ?>
 <link rel="stylesheet" href="./css/custom.css">
 <form method="POST">
@@ -94,111 +189,11 @@ else if ($_SESSION['userid'] != "David"){
   <div class="text-center mt-5 mb-3">
   <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
   </div>
-  <?php
-    if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-      //class product469 mempunyai 5 properti protected dan 1 construct method public
-      class Product469{
-        protected $rank469;
-        protected $jumlah469;
-        protected $kecepatan469;
-        protected $metode469;
-        protected $survey469;
-
-        //memberi nilai kepada properti di atas melalui tangkapan data dari parameter
-        public function __construct($rank, $jumlah, $kecepatan, $metode,$survey){
-          $this->rank469 = $rank;
-          $this->jumlah469 = $jumlah;
-          $this->kecepatan469 = $kecepatan;
-          $this->metode469 = $metode;
-          $this->survey469 = $survey;
-        }
-      }
-
-      //Class proses469 mewarisi properti & construct dari class product469
-      class Proses469 extends Product469{
-        protected function setData469(){
-          //membuat variable baru nominalRank untuk set harga rank awal
-          $nominalRank = NULL;
-          //membuat variable baru paket untuk set harga kecepatan paket
-          $paket = NULL;
-          // memberi nilai pada nominalRank berdasar value inputan rank
-          switch($this->rank469){
-            case "Rank GrandMaster":
-              $nominalRank = 5000;
-              break;
-          case "Rank Epic":
-            $nominalRank = 10000;
-              break;
-          case "Rank Legend":
-            $nominalRank = 15000;
-              break;
-          case "Rank Mythic":
-            $nominalRank = 20000;
-              break;
-          }
-          // memberi nilai harga pada paket berdasarkan value inputan
-          if($this->kecepatan469 == "Turbo"){
-            $paket = 15000;
-          }
-          else{
-            $paket = 0;
-          }
-          //rumus memberi total harga joki
-          $totalHarga = $nominalRank * $this->jumlah469 + $paket;
-
-      echo "<div class='container-fluid p-3 w-75 rounded border border-success mt-4'>";
-      echo "<h5>Data Order Anda:</h5><hr>";
-      echo "<p><strong>Paket Joki $this->rank469 - $this->jumlah469 Bintang</strong> </p>";
-      echo "<p><strong>Tipe Paket:</strong> $this->kecepatan469</p>";
-      echo "<p><strong>Metode Pembayaran:</strong> $this->metode469</p>";
-      echo "<p><strong>Referal :</strong> $this->survey469</p>";
-      echo "<p><strong>Total Bayar:</strong> $totalHarga</p>";
-      echo "</div>";
-        }
-
-      public function displayData469(){
-        //deklarasi variable isi array metode pembayaran diblokir
-        $metodeBlokir = ["DANA","OVO"];
-        //deklarasi array inputan
-        $arrayInputProd = [
-          $this->rank469,
-          $this->jumlah469,
-          $this->kecepatan469,
-          $this->metode469,
-          $this->survey469,
-      ];
-      foreach ($arrayInputProd as $dataProd) {
-        if (in_array($this->metode469, $metodeBlokir)) {
-            // Jika data di dalam inputan metode ada yang sama dengan yang di dalam array $metodeBlokir atau, maka eksekusi kode dibawah
-            echo "<div class='container-fluid p-3 w-75 rounded border border-danger mt-4'>";
-            echo "<h5>Pembayaran menggunakan '$this->metode469' sedang tidak bisa digunakan.</h5>";
-            echo "</div>";
-            return;
-        }
-        //jika inputan data kosong, tidak menampilkan apa-apa
-        else if (empty($dataProd)){
-          echo "";
-          return;
-        }
-    }
-    // Jika tidak ada yang sama dan terisi semua, maka tampilkan data yang diambil dari setData
-    $this->setData469();
-      }
-
-      }
-      //membuat objek dengan parameter tangkapan dari submit POST
-      $berinilai469 = new Proses469(
-          $_POST['469_rank']?? '',
-          $_POST['469_jumlahBintang'] ?? '',
-          $_POST['469_KecepatanPaket'] ?? '',
-          $_POST['469_MetodePembayaran'] ?? '',
-          $_POST['469_Survey'] ?? ''
-      );
-
-      //mengeksekusi method displaydata469
-      echo $berinilai469->displayData469();
-    }
-
+<!-- Jika objek di inisialisasi maka tampilkan method untuk menampilkan data -->
+<?php
+  if(isset($berinilai462)) {
+    echo $berinilai469->displayData469();
+  }
   ?>
   </div>
 </form>
