@@ -8,19 +8,24 @@ class Customer_462{ //deklarasi class customer
   protected $nohp462;
   protected $userid462;
   protected $password462;
+  protected $halamanlogin462;
 
-  //method construct public untuk memberi nilai properti yang bersifat protected
-  public function __construct($login,$nama,$nohp,$userid,$password){ 
-      $this->loginvia462 = $login;
-      $this->nama462 = $nama;
-      $this->nohp462 = $nohp;
-      $this->userid462 = $userid;
-      $this->password462 = $password;
+ 
+  public function proses_login462(){
+
   }
 }
 
 class Proses_462 extends Customer_462{ //class proses mewarisi properti & method class customer_462
   
+   //method construct public untuk memberi nilai properti yang bersifat protected
+   public function __construct($login,$nama,$nohp,$userid,$password){ 
+    $this->loginvia462 = $login;
+    $this->nama462 = $nama;
+    $this->nohp462 = $nohp;
+    $this->userid462 = $userid;
+    $this->password462 = $password;
+}
   //method protected untuk menampilkan setting tampilan inputan
   protected function setData462(){
       echo "<div class='container-fluid p-3 w-75 rounded border border-success mt-4'>";
@@ -72,8 +77,6 @@ $berinilai462 = new Proses_462(
                 $_POST['462_Username'] ?? '',
                 $_POST['462_Password'] ?? ''
 );
-
-//mengeksekusi logika yang ada di method displayData
 
 }?>
 <form method="POST">

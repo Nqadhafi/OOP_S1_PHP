@@ -8,18 +8,20 @@
       protected $metode469;
       protected $survey469;
 
+      
+    }
+
+    //Class proses469 mewarisi properti & construct dari class product469
+    class Proses469 extends Product469{
       //memberi nilai kepada properti di atas melalui tangkapan data dari parameter
       public function __construct($rank, $jumlah, $kecepatan, $metode,$survey){
         $this->rank469 = $rank;
         $this->jumlah469 = $jumlah;
         $this->kecepatan469 = $kecepatan;
         $this->metode469 = $metode;
-        $this->survey469 = $survey;
+        $this->survey469 = $survey; 
       }
-    }
-
-    //Class proses469 mewarisi properti & construct dari class product469
-    class Proses469 extends Product469{
+      
       protected function setData469(){
         //membuat variable baru nominalRank untuk set harga rank awal
         $nominalRank = NULL;
@@ -100,7 +102,6 @@
         $_POST['469_Survey'] ?? ''
     );
 
-    //mengeksekusi method displaydata469
     
   }
 
