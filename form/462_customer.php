@@ -8,11 +8,18 @@ class Customer_462{ //deklarasi class customer
   protected $nohp462;
   protected $userid462;
   protected $password462;
-  protected $halamanlogin462;
+  protected $datalogin462 = ['user' => "2212030462" , 'password' => "462"];
 
  
   public function proses_login462(){
 
+      if($_POST['userID'] == $this->datalogin462['user'] && $_POST['password'] == $this->datalogin462['password']){
+        $_SESSION['nama'] = "Haikal"; 
+        $_SESSION['nim'] = "2212030462";
+        $_SESSION['foto'] = "./assets/haikal.jpg";
+        return;
+      }
+      echo "";
   }
 }
 
