@@ -2,7 +2,7 @@
 session_start(); 
 
 //Jika session['userid'] sudah ada, maka akan mengarahkan ke index.php
-if(isset($_SESSION['userid'])){
+if(isset($_SESSION['nama'])){
   header("Location: index.php");
   exit;
 }
@@ -65,6 +65,12 @@ if(isset($_SESSION['userid'])){
     <form action="index.php" method="POST">
         <div class="mx-5 px-5">
             <h1 class="text-center">Login</h1>
+            <?php
+        if (isset($_SESSION['error'])) {
+            echo "<div class='alert alert-danger' role='alert'>" . $_SESSION['error'] . "</div>";
+            unset($_SESSION['error']);
+        }
+        ?>
             <div class="mb-3 ">
             <label for="userID" class="form-label">User ID</label>
             <input type="text" class="form-control" name="userID">
