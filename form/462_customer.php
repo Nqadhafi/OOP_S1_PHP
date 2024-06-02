@@ -12,7 +12,7 @@ class Customer_462{ //deklarasi class customer
   protected $userid462;
   protected $password462;
  
-
+//method untuk logout, menghapus & meng-unset session kemudian mengarahkan ke halaman login
 public function proses_logout462(){
   session_start();
         session_unset();
@@ -21,6 +21,28 @@ public function proses_logout462(){
         header("Location: login.php");
         exit;
 }
+
+//overloading data tipe member
+public function __set($name, $value) {
+  if ($name === 'memberType') {
+    $this->memberType = $value;
+  }
+}
+
+//percabangan untuk menampilkan output berdasarkan input
+public function __get($name) {
+  if ($name === 'memberType') {
+    if ($this->memberType === 'non-member') {
+      return "Buatlah member untuk mendapatkan promo menarik";
+    } elseif ($this->memberType === 'member') {
+      return "Selamat kamu berhak mendapat diskon 5%";
+    } else {
+      return "Status member tidak valid";
+    }
+  }
+  return "null";
+}
+
 }
 
 class Proses_462 extends Customer_462{ //class proses mewarisi properti & method class customer_462
@@ -42,6 +64,9 @@ class Proses_462 extends Customer_462{ //class proses mewarisi properti & method
       echo "<p><strong>Nomor HP:</strong> $this->nohp462</p>";
       echo "<p><strong>User ID / E-mail:</strong> $this->userid462</p>";
       echo "<p><strong>Password:</strong> $this->password462</p>";
+
+      // memanggil metode __get untuk mengakses properti baru yang didefinisikan di __set
+      echo "<h5 style='background-color:yellow; color:red;'>" . $this->__get('memberType') . "</h5>";
       echo "</div>";
     }
 //method public untuk mengambil data dari method setData yang bersifat protected
@@ -92,6 +117,8 @@ $berinilai462 = new Proses_462(
                 $_POST['462_Username'] ?? '',
                 $_POST['462_Password'] ?? ''
 );
+// membuat dan menetapkan nilai property baru sehingga nilai $name __set adalah memberType dan $value = $_POST['462_Member']
+$berinilai462->memberType = $_POST['462_Member'] ?? '';
 
 }?>
 
@@ -126,6 +153,13 @@ $berinilai462 = new Proses_462(
   <div class="mb-3 col-md-6">
     <label for="462_Password" class="form-label">Password</label>
     <input type="Password" class="form-control" name="462_Password">
+  </div>
+  <div class="mb-3 col-md-6">
+    <label for="462_Member" class="form-label">Tipe Member :</label>
+    <select class="form-select" name="462_Member">
+    <option value="non-member">Tidak punya kartu member</option>
+  <option value="member">Ada kartu member</option>
+    </select>
   </div>
   </div>
   <div class="text-center mt-5 mb-3">
