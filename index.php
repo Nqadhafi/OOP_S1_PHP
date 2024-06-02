@@ -30,7 +30,7 @@ if(!isset($_SESSION['nim'])){
     <h5 class="card-text">Nama : <?php echo $_SESSION['nama']; ?></h5>
     <h5 class="card-text">NIM : <?php echo $_SESSION['nim'];?></h5>
    <a href="?logout" class="btn btn-danger">
-    Logout link
+    Logout
     </a>
   </div>
   </div>
@@ -41,7 +41,7 @@ if(!isset($_SESSION['nim'])){
 
 
   <div class="py-3 text-center">
-    <h1>Jasa Joki Mobile Legends Bang Bang</h1>s
+    <h1>Jasa Joki Mobile Legends Bang Bang</h1>
   </div>
   
   <!-- Form dengan method post untuk menigirim data -->

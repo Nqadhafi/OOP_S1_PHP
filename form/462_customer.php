@@ -1,7 +1,10 @@
   <!-- Codingan PHP Objek -->
 
   <?php
-
+  //jika session nim tidak di set maka redirect ke login.php
+if(!isset($_SESSION['nim'])){
+  header("location:../login.php");
+}
 class Customer_462{ //deklarasi class customer
   protected $loginvia462; //properti bersifat protected
   protected $nama462;

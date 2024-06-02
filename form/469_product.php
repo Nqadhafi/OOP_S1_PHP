@@ -1,4 +1,9 @@
  <?php
+
+ //jika session nim tidak di set maka redirect ke login.php
+ if(!isset($_SESSION['nim'])){
+  header("location:../login.php");
+}
     //class product469 mempunyai 5 properti protected dan 1 construct method public
 
     class Product469{
