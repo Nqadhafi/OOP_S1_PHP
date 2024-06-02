@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 
-//Jika session['userid'] sudah ada, maka akan mengarahkan ke index.php
+//Jika session['nama'] sudah ada, maka akan mengarahkan ke index.php
 if(isset($_SESSION['nama'])){
   header("Location: index.php");
   exit;
@@ -44,21 +44,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $prosesLogin = new ProsesLogin(); //membuat objek prosesLogin dari class ProsesLogin
 
 
+    // jika method login462 mengembalikan nilai false, maka proses akan menjalankan method login462
     if($prosesLogin->login462($_POST['userID'], $_POST['password']) == false){
       $prosesLogin->login469($_POST['userID'], $_POST['password']);
     }
-  //   else {
-  //     $_SESSION['error'] = "User ID atau password salah.";
-  // }
-    //percabangan untuk memilih method mana yang akan dieksekusi menurut inputan yang benar
-    // if ($_POST['userID'] == "2212030462") {
-    //      $prosesLogin->login462($_POST['userID'], $_POST['password']);
-    // } elseif ($_POST['userID'] == "2212030469") {
-    //      $prosesLogin->login469($_POST['userID'], $_POST['password']);
-    //   } 
-    //   else {
-    //     $_SESSION['error'] = "User ID atau password salah.";
-    // }
 }
 ?>
 <!DOCTYPE html>
