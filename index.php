@@ -41,9 +41,7 @@ if(!isset($_SESSION['nim'])){
 
 
   <div class="py-3 text-center">
-    <h1>Jasa Joki Mobile Legends Bang Bang</h1>
-    <?php echo $_SESSION['nama'] ?>
-    <?php echo $_SESSION['nim'] ?>
+    <h1>Jasa Joki Mobile Legends Bang Bang</h1>s
   </div>
   
   <!-- Form dengan method post untuk menigirim data -->

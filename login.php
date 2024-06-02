@@ -74,12 +74,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ?>
             <div class="mb-3 ">
             <label for="userID" class="form-label">User ID</label>
-            <input type="text" class="form-control" name="userID">
+            <input type="text" class="form-control" name="userID" required>
           </div>
           <!-- Password -->
           <div class="mb-3 ">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" required>
           </div>
           </div>
           <div class="text-center mt-5 mb-3">
