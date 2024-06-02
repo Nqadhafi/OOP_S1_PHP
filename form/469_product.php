@@ -1,5 +1,4 @@
  <?php
-    
     //class product469 mempunyai 5 properti protected dan 1 construct method public
 
     class Product469{
@@ -7,33 +6,15 @@
       protected $jumlah469;
       protected $kecepatan469;
       protected $metode469;
-      protected $survey469;
-      protected $datalogin469 = ['user' => "2212030469" , 'password' => "469"];
-      
-      public function proses_login469() {
-        if (isset($_POST['userID']) && isset($_POST['password'])) {
-            if ($_POST['userID'] == $this->datalogin469['user'] && $_POST['password'] == $this->datalogin469['password']) {
-                $_SESSION['nama'] = "David";
-                $_SESSION['nim'] = "2212030469";
-                $_SESSION['foto'] = "./assets/david.jpeg";
-            } else {
-                $_SESSION['error'] = "User ID atau password salah.";
-                header('Location:login.php');
-               exit;
-            }
-        } 
-        else if(!isset($_SESSION['nama'])){
-          header('Location:login.php');
-                exit;
-        }
-        else if ($_SESSION['nim'] == "2212030462") {
-           
-            exit;
-        }
-    }
+      protected $survey469;    
 
     public function proses_logout469(){
-    echo "asu";
+      session_start();
+        session_unset();
+        session_destroy();
+        $_SESSION = [];
+        header("Location: login.php");
+        exit;
     }
       
     }
@@ -109,23 +90,21 @@
           return;
       }
       //jika inputan data kosong, tidak menampilkan apa-apa
-      // else if (empty($dataProd)){
-      //   echo "";
-      //   return;
-      // }
+      else if (empty($dataProd)){
+        echo "";
+        return;
+      }
   }
   // Jika tidak ada yang sama dan terisi semua, maka tampilkan data yang diambil dari setData
   $this->setData469();
     }
 
     }
-    $objek2 = new Product469();
-    $objek2->proses_login469();
-
-    if(isset($_POST['logout469'])){
-      $objek2->proses_logout469();
+    //jika pada link ter set parameter GET logout maka akan mengakhiri sesi
+    if(isset($_GET['logout'])){
+      $objek469 = new Product469();
+      $objek469->proses_logout469();
     }
-
     if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     //membuat objek dengan parameter tangkapan dari submit POST
     $berinilai469 = new Proses469(
@@ -140,25 +119,8 @@
   }
 
 ?>
-<link rel="stylesheet" href="./css/custom.css">
-<div class="container d-flex flex-column align-items-center mx-auto">
-  <h1>Informasi Admin</h1>
-<div class="card" style="width: 30rem;">
-<div class="d-flex">
-  <div class="w-25">
-  <img src="<?php echo $_SESSION['foto'] ?? ''?>" class="card-img-top" alt="...">
-  </div>
-  <div class="card-body ps-5">
-    <h5 class="card-text">Nama : <?php echo $_SESSION['nama']; ?></h5>
-    <h5 class="card-text">NIM : <?php echo $_SESSION['nim'];?></h5>
-    <form method="POST" class="pt-2">
-    <button type="submit" class="btn btn-danger" name="logout469">Logout</button>
-    </form>
-  </div>
-  </div>
-</div>
 
-    </div>
+<link rel="stylesheet" href="./css/custom.css">
 <form method="POST">
 <div class="container-fluid p-3 w-75 rounded border border-warning">
 <div>
@@ -244,7 +206,7 @@
   </div>
 <!-- Jika objek di inisialisasi maka tampilkan method untuk menampilkan data -->
 <?php
-  if(isset($berinilai462)) {
+  if(isset($berinilai469)) {
     echo $berinilai469->displayData469();
   }
   ?>

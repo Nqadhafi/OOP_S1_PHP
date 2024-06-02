@@ -1,13 +1,8 @@
 <?php
 session_start();
-session_destroy();
-
-// if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
-//   // Memanggil file customer.php untuk proses login dan pengolahan data customer
-//   include_once('./form/462_customer.php');
-//   // Memanggil file product.php untuk proses login dan pengolahan data produk
-//   include_once('./form/469_product.php');
-// }
+if(!isset($_SESSION['nim'])){
+  header("location:login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +17,26 @@ session_destroy();
 <body>
   <!-- Container Utama -->
 <div class="container bg-light my-5 py-4 rounded mx-auto">
+  
+<!-- Card admin -->
+<div class="container d-flex flex-column align-items-center mx-auto">
+  <h1>Informasi Admin</h1>
+<div class="card" style="width: 30rem;">
+<div class="d-flex">
+  <div class="w-25">
+  <img src="<?php echo $_SESSION['foto'] ?? ''?>" class="card-img-top" alt="...">
+  </div>
+  <div class="card-body ps-5">
+    <h5 class="card-text">Nama : <?php echo $_SESSION['nama']; ?></h5>
+    <h5 class="card-text">NIM : <?php echo $_SESSION['nim'];?></h5>
+   <a href="?logout" class="btn btn-danger">
+    Logout link
+    </a>
+  </div>
+  </div>
+</div>
 
+    </div>
 
 
 
@@ -31,11 +45,20 @@ session_destroy();
     <?php echo $_SESSION['nama'] ?>
     <?php echo $_SESSION['nim'] ?>
   </div>
+  
   <!-- Form dengan method post untuk menigirim data -->
     <!-- Memanggil form dengan fungsi include supaya codingan lebih rapi -->
-    <?php include ('./form/462_customer.php'); ?>
+    <?php
+if($_SESSION['nim'] == "2212030462"){
+  include ('./form/462_customer.php');
+}
+  ?>
   <br>
-  <?php include ('./form/469_product.php'); ?>
+  <?php
+  if($_SESSION['nim'] == "2212030469"){
+   include ('./form/469_product.php'); 
+   }
+?>
 
 </div>
 
