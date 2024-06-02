@@ -1,7 +1,7 @@
   <!-- Codingan PHP Objek -->
 
   <?php
- //Jika form mengirim request submit POST maka kode dibawah baru dijalanakn
+
 class Customer_462{ //deklarasi class customer
   protected $loginvia462; //properti bersifat protected
   protected $nama462;
@@ -79,7 +79,7 @@ if(isset($_GET['logout'])){
   $objek462 = new Customer_462();
   $objek462->proses_logout462();
 }
-
+ //Jika form mengirim request submit POST maka kode dibawah baru dijalanakn
     if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
 //membuat objek dengan parameter tangkapan data dari POST
 $berinilai462 = new Proses_462(

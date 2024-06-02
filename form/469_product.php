@@ -105,6 +105,8 @@
       $objek469 = new Product469();
       $objek469->proses_logout469();
     }
+
+    //Jika server request POST maka akan menginisialisasi pembuatan objek untuk mengisi variabel dari formulir
     if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     //membuat objek dengan parameter tangkapan dari submit POST
     $berinilai469 = new Proses469(
