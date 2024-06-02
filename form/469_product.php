@@ -21,6 +21,31 @@
         header("Location: login.php");
         exit;
     }
+
+    //overloading data tipe member
+public function __set($name, $value) {
+  if ($name === 'adminpaket') {
+    $this->adminpaket = $value;
+  }
+}
+
+//percabangan untuk menampilkan output berdasarkan input
+public function __get($name) {
+  if ($name === 'adminpaket') {
+    if ($this->adminpaket === 'Turbo') {
+
+      return "Silahkan screenshot data order di atas, kemudian kirim ke admin Freya di <a href='google.com'>sini</a>"  ;
+    } 
+    elseif ($this->adminpaket === 'Reguler') {
+
+      return "Silahkan screenshot data order di atas, kemudian kirim ke admin Jihyo di <a href='instagram.com'>sini</a>"  ;
+    } 
+    else {
+      return "Status order tidak valid";
+    }
+  }
+  return "null";
+}
       
     }
 
@@ -64,14 +89,16 @@
         }
         //rumus memberi total harga joki
         $totalHarga = $nominalRank * $this->jumlah469 + $paket;
-
+     
     echo "<div class='container-fluid p-3 w-75 rounded border border-success mt-4'>";
     echo "<h5>Data Order Anda:</h5><hr>";
     echo "<p><strong>Paket Joki $this->rank469 - $this->jumlah469 Bintang</strong> </p>";
     echo "<p><strong>Tipe Paket:</strong> $this->kecepatan469</p>";
     echo "<p><strong>Metode Pembayaran:</strong> $this->metode469</p>";
     echo "<p><strong>Referal :</strong> $this->survey469</p>";
-    echo "<p><strong>Total Bayar:</strong> $totalHarga</p>";
+    echo "<p><strong>Total Bayar:</strong> $totalHarga  </p>";
+    // memanggil metode __get untuk mengakses properti baru yang didefinisikan di __set
+    echo "<h5 style='background-color:yellow; color:red;'>" . $this->__get('adminpaket') . "</h5>";
     echo "</div>";
       }
 
@@ -122,6 +149,8 @@
         $_POST['469_Survey'] ?? ''
     );
 
+    // membuat dan menetapkan nilai property baru sehingga nilai $name __set adalah memberType dan $value = $_POST['462_Member']
+$berinilai469->adminpaket = $_POST['469_KecepatanPaket'] ?? '';
     
   }
 
@@ -181,14 +210,14 @@
     </div>
   <!-- Kecepatan Order -->
   <h6>Kecepatan Order :</h6>
-  <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="Turbo" id="469_KecepatanPaket" name="469_KecepatanPaket">
+  <div class="form-check" >
+  <input class="form-check-input" type="radio" value="Turbo" id="469_KecepatanPaket" name="469_KecepatanPaket">
   <label class="form-check-label" for="469_KecepatanPaket">
     Paket Turbo (3-5 hari)
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="Reguler" id="469_KecepatanPaket" name="469_KecepatanPaket">
+  <input class="form-check-input" type="radio" value="Reguler" id="469_KecepatanPaket" name="469_KecepatanPaket">
   <label class="form-check-label" for="469_KecepatanPaket">
     Paket Reguler (7-10 hari)
   </label>
@@ -206,7 +235,12 @@
 <!-- Survey -->
   <div class="mt-4 ">
     <label for="Survey" class="form-label"><h6>Darimana kamu mendengar tentang kami?</h6></label>
-    <input type="text" class="form-control" name="469_Survey" id="Survey">
+    <select  class="form-select" name="469_Survey">
+      <option value="Instagram">Instagram</option>
+      <option value="Facebook">Facebook</option>
+      <option value="Website">Website / Google</option>
+      <option value="Tiktok">Tiktok</option>
+    </select>
   </div>
   <div class="text-center mt-5 mb-3">
   <button type="submit" class="btn btn-primary px-5 py-3">Order Sekarang</button>
